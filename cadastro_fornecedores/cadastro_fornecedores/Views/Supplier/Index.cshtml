@@ -1,0 +1,117 @@
+﻿@model IEnumerable<cadastro_fornecedores.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Lista de Fornecedores";
+}
+
+<h1>Tarefas</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Adicionar fornecedor</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                CNPJ
+            </th>
+            <th>
+                Telefone fornecedor
+            </th>
+            <th>
+                Rua
+            </th>
+            <th>
+                Cidade
+            </th>
+            <th>
+                Bairro
+            </th>
+            <th>
+                N° Empresa
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Cep
+            </th>
+            <th>
+                Nome contato
+            </th>
+            <th>
+                Telefone contato
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.supplierFantasyName
+                </td>
+                <td>
+                    @item.supplierEmail
+                </td>
+                <td>
+                    @item.cnpj
+                </td>
+                <td>
+                    @item.supplierPhone
+                </td>
+                <td>
+                    @item.supplierStreet
+                </td>
+                <td>
+                    @item.supplierCity
+                </td>
+                <td>
+                    @item.supplierNeighborhood
+                </td>
+                <td>
+                    @item.supplierHouseNumber
+                </td>
+                <td>
+                    @item.supplierState
+                </td>
+                <td>
+                    @item.personToContact
+                </td>
+                <td>
+                    @item.supplierCep
+                </td>
+                <td>
+                    @item.phoneNumberPersonToContact
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@item.id">Editar</a>
+                    <a class="btn btn-outline-info btn-sm" asp-action="Details" asp-route-id="@item.id">Detalhes</a>
+                    <a class="btn btn-danger text-white btn-sm" asp-action="Delete" asp-route-id="@item.id">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="alertDiv" class="alert alert-success">
+        @TempData["AlertMessage"]
+    </div>
+
+    <script>
+        // Função para esconder o alert após 2 segundos
+        setTimeout(function () {
+            document.getElementById("alertDiv").style.display = "none";
+        }, 2000); // 2000 milissegundos (2 segundos)
+    </script>
+}

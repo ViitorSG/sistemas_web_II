@@ -1,0 +1,94 @@
+﻿@model cadastro_fornecedores.Models.Supplier
+
+@{
+    ViewData["Title"] = "Apagar Fornecedor";
+}
+
+<h1>Apagar Fornecedor</h1>
+
+<h3>Você tem certeza que deseja apagar esse fornecedor?</h3>
+
+<div>
+    <h4>Fornecedor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierFantasyName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierFantasyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.cnpj)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cnpj)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierPhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierPhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierStreet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierStreet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierCity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierCity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierNeighborhood)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierNeighborhood)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierHouseNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierHouseNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierState)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierState)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.supplierCep)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.supplierCep)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.personToContact)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.personToContact)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.phoneNumberPersonToContact)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.phoneNumberPersonToContact)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Apagar" class="btn btn-danger btn-sm" />
+        <a class="btn btn-secondary text-white btn-sm">Voltar</a>
+    </form>
+</div>

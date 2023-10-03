@@ -1,0 +1,87 @@
+﻿@model cadastro_fornecedores.Models.Supplier
+
+@{
+    ViewData["Title"] = "Editar Fornecedor";
+}
+
+<h1>Editar Fornecedor</h1>
+
+<h1>Tarefa</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Nome Fornecedor</label>
+                <input asp-for="supplierFantasyName" class="form-control" />
+                <span asp-validation-for="supplierFantasyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">E-mail do Fornecedor</label>
+                <input asp-for="supplierEmail" class="form-control" />
+                <span asp-validation-for="supplierEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Cnpj do Fornecedor</label>
+                <input asp-for="cnpj" class="form-control" />
+                <span asp-validation-for="cnpj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Telefone do Fornecedor</label>
+                <input asp-for="supplierPhone" class="form-control" />
+                <span asp-validation-for="supplierPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Pessoa para contato</label>
+                <input asp-for="personToContact" class="form-control" />
+                <span asp-validation-for="personToContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Telefone do contato</label>
+                <input asp-for="phoneNumberPersonToContact" class="form-control" />
+                <span asp-validation-for="phoneNumberPersonToContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Rua do Fornecedor</label>
+                <input asp-for="supplierStreet" class="form-control" />
+                <span asp-validation-for="supplierStreet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">N° do Fornecedor</label>
+                <input asp-for="supplierHouseNumber" class="form-control" />
+                <span asp-validation-for="supplierHouseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Bairro do Fornecedor</label>
+                <input asp-for="supplierNeighborhood" class="form-control" />
+                <span asp-validation-for="supplierNeighborhood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Cidade do Fornecedor</label>
+                <input asp-for="supplierCity" class="form-control" />
+                <span asp-validation-for="supplierCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Complemento do endereço</label>
+                <input asp-for="supplierAddressComplement" class="form-control" />
+                <span asp-validation-for="supplierAddressComplement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Cep do Fornecedor</label>
+                <input asp-for="supplierCep" class="form-control" />
+                <span asp-validation-for="supplierCep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Estado do Fornecedor</label>
+                <input asp-for="supplierState" class="form-control" />
+                <span asp-validation-for="supplierState" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="padding-top: 10px">
+                <input type="submit" value="Editar" class="btn btn-primary btn-sm" />
+                <a class="btn btn-secondary text-white btn-sm" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
