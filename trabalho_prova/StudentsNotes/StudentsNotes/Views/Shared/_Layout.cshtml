@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StudentsNotes</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/StudentsNotes.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <style>
+        .navbar-primary-menu,
+        .navbar-primary-menu li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .navbar-primary-menu li a {
+           display: block;
+           padding: 10px 18px;
+           text-align: left;
+           border-bottom: solid 1px #444;
+           color: #ccc;
+           text-decoration: none;
+        }
+        .navbar-primary-menu li a:hover {
+           background-color: #000;
+           text-decoration: none;
+           color: white;
+        }
+
+        .navbar-primary-menu li a .icon {
+            margin-right: 6px;
+
+        }
+
+                .navbar-primary-menu li a:hover .icon {
+            color: orchid;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Notas Estudantis</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar-primary">
+        <a href="#" class="btn-expand-collapse toggle-arrow"><i class="fas fa-arrow-left"></i></span></a>
+        <ul class="navbar-primary-menu">
+            <li>
+                <a asp-area="" asp-controller="home" asp-action="Index">
+                    <i class="icon fas fa-home"></i>
+                    <span class="nav-label">Home</span>
+                </a>
+                <a asp-area="" asp-controller="Students" asp-action="Index">
+                    <i class="icon fas fa-user"></i>
+                    <span class="nav-label">Alunos</span>
+                </a>
+                <a asp-area="" asp-controller="Discipline" asp-action="Index">
+                    <i class="icon fas fa-book"></i>
+                    <span class="nav-label">Disciplina</span>
+                </a>
+                <a asp-area="" asp-controller="Enrollment" asp-action="Index">
+                    <i class="icon fas fa-users-gear"></i>
+                    <span class="nav-label">Matricula</span>
+                </a>
+                <a asp-area="" asp-controller="Grade" asp-action="Index">
+                    <i class="icon fas fa-clipboard-list"></i>
+                    <span class="nav-label">Grade</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("styles", required: false)
+
+    @section Scripts {
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    }
+
+    <script>
+        $(document).ready(function () {
+            $('.btn-expand-collapse').click(function (e) {
+                $('.navbar-primary').toggleClass('collapsed');
+                $('.toggle-arrow i').toggleClass('fa-arrow-right fa-arrow-left');
+            });
+        });
+    </script>
+</body>
+</html>

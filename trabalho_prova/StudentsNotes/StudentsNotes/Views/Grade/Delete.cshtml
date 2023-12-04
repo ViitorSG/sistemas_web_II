@@ -1,0 +1,93 @@
+﻿@model StudentsNotes.Models.Grade
+
+@{
+    ViewData["Title"] = "Grade";
+}
+
+@section styles {
+    <style>
+        .floating-card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+            max-width: 400px;
+            padding: 15px;
+        }
+
+        .btn-warning, .btn-info, .btn-danger {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+            .btn-warning:hover {
+                background-color: #ffc107;
+                border-color: #ffc107;
+            }
+
+            .btn-info:hover {
+                background-color: #17a2b8;
+                border-color: #17a2b8;
+            }
+
+            .btn-danger:hover {
+                background-color: #dc3545;
+                border-color: #dc3545;
+            }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+}
+
+<h1 class="text-primary">Grade</h1>
+
+<div class="card floating-card">
+    <p class="card-text">
+        <strong>Nota:</strong> @Html.DisplayFor(modelItem => Model.Score)<br />
+        <strong>Aluno:</strong> @Html.DisplayFor(modelItem => Model.Student.StudentName)<br />
+        <strong>Disciplina:</strong> @Html.DisplayFor(modelItem => Model.Discipline.DisciplineName)<br />
+    </p>
+    <a asp-action="Edit" asp-route-id="@Model.GradeID" class="btn btn-warning">
+        <i class="fa fa-pencil"></i> Edit
+    </a>
+    <a asp-action="Details" asp-route-id="@Model.GradeID" class="btn btn-info">
+        <i class="fa fa-info-circle"></i> Details
+    </a>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmationDeleteGrade_@Model.GradeID">
+        <i class="fa fa-trash"></i> Remover
+    </button>
+
+    <div class="modal fade" id="modalConfirmationDeleteGrade_@Model.GradeID" tabindex="-1" role="dialog" aria-labelledby="deleteModalGrade_@Model.GradeID" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalGrade_@Model.GradeID">Delete Grade</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja remover?
+                </div>
+                <div class="modal-footer">
+                    <form asp-action="Delete" asp-route-id="@Model.GradeID">
+                        <button type="submit" class="btn btn-warning">
+                            <i class="fa fa-trash"></i> Remover
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            <i class="fa fa-times"></i> Cancelar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+}

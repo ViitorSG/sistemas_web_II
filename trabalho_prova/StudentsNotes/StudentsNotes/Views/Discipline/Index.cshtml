@@ -1,0 +1,75 @@
+﻿@model IEnumerable<StudentsNotes.Models.Discipline>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f8f9fa;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .actions {
+        text-decoration: none;
+        margin-right: 10px;
+        color: #007bff;
+        transition: color 0.3s ease;
+    }
+
+        .actions:hover {
+            color: #0056b3;
+        }
+
+    .btn-primary {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        border: 1px solid #007bff;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+
+<h1>Index</h1>
+
+<div class="card-container">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.DisciplineName)</h5>
+                <p class="card-text">
+                    <strong>Carga Horaria:</strong> @Html.DisplayFor(modelItem => item.Workload)<br />
+                    <strong>Professor:</strong> @Html.DisplayFor(modelItem => item.Professor)<br />
+                </p>
+                <a asp-action="Edit" asp-route-id="@item.DisciplineID" class="actions">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.DisciplineID" class="actions">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.DisciplineID" class="actions">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>

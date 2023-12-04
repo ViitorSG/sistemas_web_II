@@ -1,0 +1,114 @@
+﻿@model StudentsNotes.Models.Discipline
+
+@{
+    ViewData["Title"] = "Delete Discipline";
+}
+
+<style>
+    .floating-card {
+        background-color: #f8f9fa;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-secondary {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #6c757d;
+        color: #fff;
+        border: 1px solid #6c757d;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+    .btn-danger {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #dc3545;
+        color: #fff;
+        border: 1px solid #dc3545;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+</style>
+
+<h1 class="text-danger">Delete Discipline</h1>
+
+<h3 class="text-secondary">Click the remove button to delete the discipline!</h3>
+<div class="card floating-card">
+    <div class="card-body">
+        <h4 class="card-title font-weight-bold">Discipline</h4>
+        <hr />
+        <dl>
+            <dt>
+                Discipline Name
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DisciplineName)
+            </dd>
+            <dt>
+                Workload
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Workload)
+            </dd>
+            <dt>
+                Professor's Name
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Professor)
+            </dd>
+        </dl>
+
+        <div class="mt-4">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fa fa-chevron-left"></i> Back to List
+            </a>
+
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmationDeleteDiscipline">
+                <i class="fa fa-trash"></i> Remove
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalConfirmationDeleteDiscipline" tabindex="-1" role="dialog" aria-labelledby="deleteModalDiscipline" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalDiscipline">Delete Discipline</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this discipline?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="DisciplineID" />
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> Remove
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fa fa-times"></i> Cancel
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+}

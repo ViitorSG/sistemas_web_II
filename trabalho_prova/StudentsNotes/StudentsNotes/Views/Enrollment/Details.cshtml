@@ -1,0 +1,69 @@
+﻿@model StudentsNotes.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    .floating-card {
+        background-color: #f8f9fa;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    .btn-warning {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .btn-warning:hover {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+</style>
+
+<h1>Details</h1>
+
+<div class="card floating-card">
+    <div class="card-body">
+        <h4>Enrollment</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Ano da Matricula
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EnrollmentYear)
+            </dd>
+            <dt class="col-sm-2">
+                Status do aluno
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+            <dt class="col-sm-2">
+                Nome do aluno
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Student.StudentName)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.EnrollmentID" class="btn btn-warning">
+        <i class="fa fa-pencil"></i> Edit
+    </a> |
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="fa fa-chevron-left"></i> Back to List
+    </a>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+}
